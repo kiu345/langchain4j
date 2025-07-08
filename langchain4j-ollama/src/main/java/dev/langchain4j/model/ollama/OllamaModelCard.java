@@ -29,11 +29,20 @@ public class OllamaModelCard {
     OllamaModelCard() {
     }
 
-    public OllamaModelCard(String modelfile, String parameters, String template, OllamaModelDetails details, String[] capabilities) {
+    /**
+     * @deprecated 
+     */
+    public OllamaModelCard(String modelfile, String parameters, String template, OllamaModelDetails details) {
+        this(modelfile, parameters, template, details, null, null);
+    }
+
+    public OllamaModelCard(String modelfile, String parameters, String template, OllamaModelDetails details, String[] capabilities, String license) {
         this.modelfile = modelfile;
         this.parameters = parameters;
         this.template = template;
         this.details = details;
+        this.capabilities = capabilities;
+        this.license = license;
     }
 
     public static Builder builder() {
@@ -156,7 +165,7 @@ public class OllamaModelCard {
         }
 
         public OllamaModelCard build() {
-            return new OllamaModelCard(modelfile, parameters, template, details, capabilities);
+            return new OllamaModelCard(modelfile, parameters, template, details, capabilities, license);
         }
     }
 }

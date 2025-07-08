@@ -52,6 +52,7 @@ class OllamaModelsIT extends AbstractOllamaLanguageModelInfrastructure {
         assertThat(response.content().getModifiedAt()).isNotNull();
         assertThat(response.content().getDetails().getFamily()).isEqualTo("llama");
         assertThat(response.content().getCapabilities()).contains("completion");
+        assertThat(response.content().getLicense().trim()).startsWith("Apache");
     }
 
     @Test
@@ -70,6 +71,7 @@ class OllamaModelsIT extends AbstractOllamaLanguageModelInfrastructure {
         assertThat(response.content().getModelInfo()).containsKey("general.architecture");
         assertThat(response.content().getDetails().getFamily()).isEqualTo("llama");
         assertThat(response.content().getCapabilities()).contains("completion");
+        assertThat(response.content().getLicense().trim()).startsWith("Apache");
     }
 
     @Test
